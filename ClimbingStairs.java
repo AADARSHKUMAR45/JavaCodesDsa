@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class ClimbingStairs {
+
     public static int climbStairs(int n) {
         if (n <= 2) return n;
 
