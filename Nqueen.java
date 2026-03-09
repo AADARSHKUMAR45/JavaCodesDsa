@@ -29,7 +29,8 @@ public class Nqueen {
     public static void solveNQueen(char board[][], int row){
 
         if(row == board.length){
-            printBoard(board);
+           //rintBoard(board);
+           count++;
             return;
         }
 
@@ -55,6 +56,7 @@ public class Nqueen {
             System.out.println();
         }
     }
+    static int count=0;
 
     public static void main(String[] args){
 
@@ -68,5 +70,6 @@ public class Nqueen {
         }
 
         solveNQueen(board, 0);
+        System.out.println("total no of place queen"  +count);
     }
 }
