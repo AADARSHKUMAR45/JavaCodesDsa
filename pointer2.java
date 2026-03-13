@@ -1,5 +1,3 @@
-//package ArrayList;
-
 import java.util.ArrayList;
 public class pointer2{
     public static int StoreWater(ArrayList<Integer>height){
