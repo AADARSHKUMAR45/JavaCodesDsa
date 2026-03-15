@@ -9,9 +9,10 @@ public class MaxList {
         list.add(5);
         int Max=Integer.MIN_VALUE;
         for(int i=0;i<list.size();i++){
-            if(Max<list.get(i)){
-                Max=list.get(i);
-            }
+           // if(Max<list.get(i)){
+            //    Max=list.get(i);
+           // }
+          Max= Math.max(Max,list.get(i));
         }
         System.out.println("Maximum Value = " + Max);
 
