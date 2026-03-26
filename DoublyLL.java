@@ -1,3 +1,5 @@
+
+
 class DoublyLL{
     public class Node{
         int data;
@@ -12,7 +14,7 @@ class DoublyLL{
     }
     public static Node head;
     public static Node tail;
-    public static int count;
+    public static int size;
     public void AddFirst(int data){
         Node newNode=new Node(data);
         if(head==null){
@@ -32,11 +34,34 @@ class DoublyLL{
         }
         System.out.println("null");
     }
+    public int RemoveFirst( ){
+        if(head==null){
+            System.out.println("dll is empty");
+            return Integer.MIN_VALUE;
+
+        }
+        if(size==1){
+            int val=head.data;
+            head=tail=null;
+            size--;
+            return val;
+        }
+        int val=head.data;
+        head=head.next;
+        head.Prev=null;
+        size--;
+        return val;
+
+
+
+    }
     public static void main(String[] args) {
         DoublyLL dll=new DoublyLL();
         dll.AddFirst(3);
         dll.AddFirst(2);
         dll.AddFirst(1);
+        dll.print();
+        dll.RemoveFirst();
         dll.print();
     }
 }
