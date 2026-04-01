@@ -59,10 +59,10 @@ public class CheckPalindrom {
 
     }
     public boolean palindrom(){
-        Node MidNode=Findmid(head);
         if(head==null || head.next==null){
             return true;
         }
+        Node MidNode=Findmid(head);
         Node prev=null;
         Node Curr=MidNode;
         Node next;
