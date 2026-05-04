@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static List<String> summaryRanges(int[] nums) {
+        List<String> result = new ArrayList<>();
+        if (nums == null || nums.length == 0) {
+            return result;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int start = nums[i];
+            
+            // Loop until the end of the consecutive sequence
+            while (i + 1 < nums.length && nums[i + 1] == nums[i] + 1) {
+                i++;
+            }
+
+            // Append "start->end" or just "start"
+            if (start != nums[i]) {
+                result.add(start + "->" + nums[i]);
+            } else {
+                result.add(String.valueOf(start));
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        // Test Case 1: Standard continuous and isolated ranges
+        int[] nums1 = {0, 1, 2, 4, 5, 7};
+        System.out.println("Input:  [0, 1, 2, 4, 5, 7]");
+        System.out.println("Output: " + summaryRanges(nums1)); 
+        // Expected: ["0->2", "4->5", "7"]
+
+        System.out.println(); // Spacer
+
+        // Test Case 2: No continuous ranges
+        int[] nums2 = {0, 2, 4, 6, 8};
+        System.out.println("Input:  [0, 2, 4, 6, 8]");
+        System.out.println("Output: " + summaryRanges(nums2)); 
+        // Expected: ["0", "2", "4", "6", "8"]
+
+        System.out.println(); // Spacer
+
+        // Test Case 3: Single element
+        int[] nums3 = {5};
+        System.out.println("Input:  [5]");
+        System.out.println("Output: " + summaryRanges(nums3)); 
+        // Expected: ["5"]
+
+        System.out.println(); // Spacer
+
+        // Test Case 4: Entire array is one sequence
+        int[] nums4 = {1, 2, 3, 4, 5};
+        System.out.println("Input:  [1, 2, 3, 4, 5]");
+        System.out.println("Output: " + summaryRanges(nums4)); 
+        // Expected: ["1->5"]
+    }
+}
